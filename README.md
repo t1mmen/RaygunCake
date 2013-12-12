@@ -6,6 +6,10 @@ A CakePHP plugin to use [Raygun.io](http://raygun.io) for errors and exceptions.
 
 Based on https://github.com/morrislaptop/AirbrakeCake
 
+**Dependencies**
+* CakePHP 2.x
+* [Raygun4php](https://github.com/MindscapeHQ/raygun4php), bundled in /Vendor
+
 Installation
 =========================
 ```
@@ -15,9 +19,6 @@ git submodule init
 git submodule update
 ```
 
-Dependencies
-=========================
-* [Raygun4php](https://github.com/MindscapeHQ/raygun4php), bundled in /Vendor
 
 app/Config/bootstrap.php
 =========================
