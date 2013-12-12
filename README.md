@@ -1,7 +1,8 @@
-CakePHP 2.0 Raygun
+CakePHP 2.x [Raygun.io] Plugin
 ============
 
-A CakePHP plugin to use Raygun for errors and exceptions.
+A CakePHP plugin to use [Raygun.io](http://raygun.io) for errors and exceptions. Required PHP 5.3+ (due to Raygun4php dependency)
+
 
 Based on https://github.com/morrislaptop/AirbrakeCake
 
@@ -14,6 +15,9 @@ git submodule init
 git submodule update
 ```
 
+Dependencies
+=========================
+* [Raygun4php](https://github.com/MindscapeHQ/raygun4php), bundled in /Vendor
 
 app/Config/bootstrap.php
 =========================

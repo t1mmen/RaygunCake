@@ -1,9 +1,12 @@
 <?php
-require_once(dirname(dirname(__FILE__)).DS.'Vendor'.DS.'autoload.php');
+/**
+ * ColoursCMS ErrorHandler
+ *
+ * @link    https://github.com/t1mmen/RaygunCake
+ * @author 	Timm Stokke <timm@stokke.me>
+ */
 
-// Workaround for Composers' autoloader
-spl_autoload_unregister(array('App', 'load'));
-spl_autoload_register(array('App', 'load'), true, true);
+App::import('Vendor', 'Raygun4php', array('file' => 'Raygun4php' . DS . 'RaygunClient.php'));
 
 class RaygunError extends ErrorHandler {
 
@@ -11,7 +14,7 @@ class RaygunError extends ErrorHandler {
 
 		// Call Raygun
 		$apiKey  = Configure::read('RaygunCake.apiKey'); // This is required
-		$client = new \Raygun4php\RaygunClient($apiKey);
+		$client = new \Raygun4php\RaygunClient($apiKey, false, true);
 		$client->SendError($code, $description, $file, $line);
 
 		// Fall back to cake
