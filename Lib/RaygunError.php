@@ -1,8 +1,9 @@
 <?php
 /**
- * ColoursCMS ErrorHandler
- *
- * @link    https://github.com/t1mmen/RaygunCake
+ * Send along errors and exceptions to Raygun.io
+ * 
+ * @link        http://raygun.ui
+ * @link        https://github.com/t1mmen/RaygunCake
  * @author 	Timm Stokke <timm@stokke.me>
  */
 
