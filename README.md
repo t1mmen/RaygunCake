@@ -1,4 +1,4 @@
-CakePHP 2.x [Raygun.io] Plugin
+CakePHP 2.x [Raygun.io](http://raygun.io) Plugin
 ============
 
 A CakePHP plugin to use [Raygun.io](http://raygun.io) for errors and exceptions. Required PHP 5.3+ (due to Raygun4php dependency)
