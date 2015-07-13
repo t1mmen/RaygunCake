@@ -28,6 +28,8 @@ app/Config/bootstrap.php
 // Include our awesome error catcher..
 CakePlugin::load('RaygunCake');
 Configure::write('RaygunCake.apiKey', '<API KEY>');
+// Optional: Send your application's version number
+Configure::write('RaygunCake.version', '1.2.3.4');
 App::uses('RaygunError', 'RaygunCake.Lib');
 ```
 

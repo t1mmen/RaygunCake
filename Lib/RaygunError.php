@@ -19,6 +19,9 @@ class RaygunError extends ErrorHandler {
 		// Call Raygun
 		$apiKey = Configure::read('RaygunCake.apiKey'); // This is required
 		$client = new \Raygun4php\RaygunClient($apiKey, self::$useAsyncSending, self::$debugMode);
+		if (Configure::read('RaygunCake.version')) {
+			$client->SetVersion(Configure::read('RaygunCake.version'));
+		}
 		$client->SendError($code, $description, $file, $line);
 	}
 
@@ -27,6 +30,9 @@ class RaygunError extends ErrorHandler {
 		// Call Raygun
 		$apiKey = Configure::read('RaygunCake.apiKey'); // This is required
 		$client = new \Raygun4php\RaygunClient($apiKey, self::$useAsyncSending, self::$debugMode);
+		if (Configure::read('RaygunCake.version')) {
+			$client->SetVersion(Configure::read('RaygunCake.version'));
+		}
 		$client->SendException($exception);
 	}
 
