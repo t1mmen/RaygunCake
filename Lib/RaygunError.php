@@ -15,25 +15,25 @@ class RaygunError extends ErrorHandler {
 	public static $debugMode = false;
 
 	// Call Raygun without calling handleError()
-	public static function handleErrorRaygun($code, $description, $file = null, $line = null) {
+	public static function handleErrorRaygun($code, $description, $file = null, $line = null, $tags = null, $userCustomData = null, $timestamp = null) {
 		// Call Raygun
 		$apiKey = Configure::read('RaygunCake.apiKey'); // This is required
 		$client = new \Raygun4php\RaygunClient($apiKey, self::$useAsyncSending, self::$debugMode);
 		if (Configure::read('RaygunCake.version')) {
 			$client->SetVersion(Configure::read('RaygunCake.version'));
 		}
-		$client->SendError($code, $description, $file, $line);
+		$client->SendError($code, $description, $file, $line, $tags, $userCustomData, $timestamp);
 	}
 
 	// Call Raygun without calling handleException
-	public static function handleExceptionRaygun(Exception $exception) {
+	public static function handleExceptionRaygun(Exception $exception, $tags = null, $userCustomData = null, $timestamp = null) {
 		// Call Raygun
 		$apiKey = Configure::read('RaygunCake.apiKey'); // This is required
 		$client = new \Raygun4php\RaygunClient($apiKey, self::$useAsyncSending, self::$debugMode);
 		if (Configure::read('RaygunCake.version')) {
 			$client->SetVersion(Configure::read('RaygunCake.version'));
 		}
-		$client->SendException($exception);
+		$client->SendException($exception, $tags, $userCustomData, $timestamp);
 	}
 
 	// Overload Errors: Call Raygun AND handleError()
