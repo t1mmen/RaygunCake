@@ -38,15 +38,43 @@ app/Config/core.php
 
 ```php
 <?php
-	Configure::write('Error', array(
-		'handler' => 'RaygunError::handleError',
-		'level' => E_ALL & ~E_DEPRECATED,
-		'trace' => true
-	));
+Configure::write('Error', array(
+  'handler' => 'RaygunError::handleError',
+  'level' => E_ALL & ~E_DEPRECATED,
+  'trace' => true
+));
 
-	Configure::write('Exception', array(
-		'handler' => 'RaygunError::handleException',
-		'renderer' => 'ExceptionRenderer',
-		'log' => true
-	));
+Configure::write('Exception', array(
+  'handler' => 'RaygunError::handleException',
+  'renderer' => 'ExceptionRenderer',
+  'log' => true
+));
 ```
+
+Manually register an error with Raygun
+=========================
+
+```php
+<?php
+// Only the first 2 arguments are required
+RaygunError::handleErrorRaygun(
+  E_WARNING,
+  "Generic Description",
+  $file, $line, $tags,
+  $userCustomData, $timestamp
+);
+```
+
+Manually register an exception with Raygun
+=========================
+
+```php
+<?php
+// Only the first argument is required
+RaygunError::handleExceptionRaygun(
+  $exception, $tags,
+  $userCustomData, $timestamp
+);
+```
+
+
