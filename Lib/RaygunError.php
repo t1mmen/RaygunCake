@@ -22,6 +22,9 @@ class RaygunError extends ErrorHandler {
 		if (Configure::read('RaygunCake.version')) {
 			$client->SetVersion(Configure::read('RaygunCake.version'));
 		}
+		if (Configure::read('RaygunCake.filterParams')) {
+			$client->setFilterParams(Configure::read('RaygunCake.filterParams'));
+		}
 		$client->SendError($code, $description, $file, $line, $tags, $userCustomData, $timestamp);
 	}
 
@@ -32,6 +35,9 @@ class RaygunError extends ErrorHandler {
 		$client = new \Raygun4php\RaygunClient($apiKey, self::$useAsyncSending, self::$debugMode);
 		if (Configure::read('RaygunCake.version')) {
 			$client->SetVersion(Configure::read('RaygunCake.version'));
+		}
+		if (Configure::read('RaygunCake.filterParams')) {
+			$client->setFilterParams(Configure::read('RaygunCake.filterParams'));
 		}
 		$client->SendException($exception, $tags, $userCustomData, $timestamp);
 	}
