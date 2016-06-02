@@ -30,6 +30,8 @@ CakePlugin::load('RaygunCake');
 Configure::write('RaygunCake.apiKey', '<API KEY>');
 // Optional: Send your application's version number
 Configure::write('RaygunCake.version', '1.2.3.4');
+// Optional: Filter out sensitive parameters before logging to Raygun
+Configure::write('RaygunCake.filterParams', array('password' => true));
 App::uses('RaygunError', 'RaygunCake.Lib');
 ```
 
