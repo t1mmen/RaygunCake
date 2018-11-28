@@ -1,3 +1,6 @@
+This repo is no longer maintained. The plugin is forked & maintained at [MindscapeHQ/RaygunCake](https://github.com/MindscapeHQ/RaygunCake)
+===========
+
 CakePHP 2.x [Raygun.io](http://raygun.io) Plugin
 ============
 
